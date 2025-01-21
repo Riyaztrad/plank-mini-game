@@ -1,0 +1,235 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  telegram_id         String             @id @db.VarChar(12)
+  telegram_first_name String
+  telegram_last_name  String
+  telegram_username   String
+  referral_code       String?            @unique @db.VarChar(6)
+  email               String?
+  wallet_address      String?            @db.VarChar(50)
+  points              Int                @default(0)
+  max_score           Int                @default(0)
+  gems                Int                @default(0)
+  consecutive_days    Int                @default(0)
+  last_daily_claim    DateTime           @default(now())
+  write_access        Boolean?           @default(false)
+  created_at          DateTime           @default(now())
+  updated_at          DateTime           @default(now()) @updatedAt
+  referreds           Referral[]         @relation("Referred")
+  referrers           Referral[]         @relation("Referrer")
+  tasks               UserTask[]         @relation("UserTasks")
+  leagues             UserLeague[]       @relation("UserLeagues")
+  squads              UserSquad[]        @relation("UserSquads")
+  boosts              UserBoost[]        @relation("UserBoosts")
+  purchases           ShopItemPurchase[] @relation("ShopItemPurchases")
+  games               Game[]             @relation("UserGames")
+  notifications       Notification[]     @relation("UserNotifications")
+}
+
+model Notification {
+  id         String           @id @default(cuid())
+  userId     String           @map("user_id")
+  type       NotificationType
+  sent       Boolean          @default(false)
+  sentAt     DateTime?        @map("sent_at")
+  identifier String?
+  createdAt  DateTime         @default(now()) @map("created_at")
+  updatedAt  DateTime         @updatedAt @map("updated_at")
+  user       User             @relation("UserNotifications", fields: [userId], references: [telegram_id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([type, sent])
+}
+
+enum NotificationType {
+  LIVES_RESET
+  DAILY_CHECK_IN_EXPIRES
+  REFERRAL_JOINED
+  INDIRECT_REFERRAL
+  INACTIVITY_WARNING
+}
+
+model Task {
+  id           Int         @id @default(autoincrement())
+  title        String      @db.VarChar(50)
+  description  String      @db.VarChar(500)
+  external_url String      @db.VarChar(500)
+  points       Int         @default(0)
+  social_media String?     @db.VarChar(50)
+  enabled      Boolean     @default(true)
+  created_at   DateTime    @default(now())
+  updated_at   DateTime    @default(now()) @updatedAt
+  completions  UserTask[]  @relation("TaskCompletions")
+  boosts       TaskBoost[] @relation("TaskBoosts")
+}
+
+model UserTask {
+  user_id    String   @db.VarChar(128)
+  task_id    Int
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+  user       User     @relation("UserTasks", fields: [user_id], references: [telegram_id], onDelete: Cascade)
+  task       Task     @relation("TaskCompletions", fields: [task_id], references: [id], onDelete: Cascade)
+
+  @@id([user_id, task_id], name: "userTaskId")
+}
+
+model League {
+  id             Int          @id @default(autoincrement())
+  title          String       @default("") @db.VarChar(50)
+  description    String       @default("") @db.VarChar(500)
+  percentile     Float        @default(0) // represents the minimum percentile to be in this league (0.1 = top 10%)
+  required_score Int          @default(0)
+  points         Int          @default(0)
+  rewards_pool   Int          @default(0)
+  enabled        Boolean      @default(true)
+  created_at     DateTime     @default(now())
+  updated_at     DateTime     @default(now()) @updatedAt
+  completions    UserLeague[] @relation("ClaimedLeagues")
+  shop_items     ShopItem[]   @relation("LeagueShopItems")
+
+  @@index([percentile])
+}
+
+model UserLeague {
+  user_id    String   @db.VarChar(128)
+  league_id  Int
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+  user       User     @relation("UserLeagues", fields: [user_id], references: [telegram_id], onDelete: Cascade)
+  league     League   @relation("ClaimedLeagues", fields: [league_id], references: [id], onDelete: Cascade)
+
+  @@id([user_id, league_id], name: "userLeagueId")
+}
+
+model Referral {
+  referrer_id String   @db.VarChar(128)
+  referred_id String   @db.VarChar(128)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now()) @updatedAt
+  referred    User     @relation("Referred", fields: [referred_id], references: [telegram_id], onDelete: Cascade)
+  referrer    User     @relation("Referrer", fields: [referrer_id], references: [telegram_id], onDelete: Cascade)
+
+  @@id([referrer_id, referred_id], name: "referralId")
+}
+
+model Squad {
+  id          Int    @id @default(autoincrement())
+  channel_id  String
+  handle      String @db.VarChar(128)
+  title       String @db.VarChar(128)
+  description String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+
+  users UserSquad[] @relation("SquadUsers")
+}
+
+model UserSquad {
+  user_id    String   @db.VarChar(128)
+  squad_id   Int
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+  user       User     @relation("UserSquads", fields: [user_id], references: [telegram_id], onDelete: Cascade)
+  squad      Squad    @relation("SquadUsers", fields: [squad_id], references: [id], onDelete: Cascade)
+
+  @@id([user_id, squad_id], name: "userSquadId")
+}
+
+model Boost {
+  id         Int             @id @default(autoincrement())
+  name       String          @db.VarChar(50)
+  created_at DateTime        @default(now())
+  updated_at DateTime        @default(now()) @updatedAt
+  users      UserBoost[]     @relation("BoostUsers")
+  tasks      TaskBoost[]     @relation("BoostTasks")
+  shopItems  ShopItemBoost[] @relation("ShopItemBoosts")
+}
+
+model UserBoost {
+  user_id    String   @db.VarChar(128)
+  boost_id   Int
+  amount     Int
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+  user       User     @relation("UserBoosts", fields: [user_id], references: [telegram_id], onDelete: Cascade)
+  boost      Boost    @relation("BoostUsers", fields: [boost_id], references: [id], onDelete: Cascade)
+
+  @@id([user_id, boost_id], name: "userBoostId")
+}
+
+model TaskBoost {
+  taskId  Int
+  boostId Int
+  amount  Int   @default(0)
+  task    Task  @relation("TaskBoosts", fields: [taskId], references: [id])
+  boost   Boost @relation("BoostTasks", fields: [boostId], references: [id])
+
+  @@id([taskId, boostId])
+}
+
+model ShopItem {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(100)
+  description String   @db.Text
+  price       Int      @default(0)
+  ton_price   Int      @default(0)
+  league_id   Int      @default(0)
+  type        String?  @db.VarChar(20)
+  enabled     Boolean  @default(true)
+  blocked     Boolean  @default(false)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now()) @updatedAt
+
+  boosts          ShopItemBoost[] // Relation to the intermediary table
+  purchases       ShopItemPurchase[] @relation("PurchaseShopItem")
+  required_league League             @relation("LeagueShopItems", fields: [league_id], references: [id], onDelete: Cascade)
+}
+
+model ShopItemBoost {
+  id         Int      @id @default(autoincrement())
+  boostId    Int
+  shopItemId Int
+  amount     Int // Amount of the boost in this shop item
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+
+  boost    Boost    @relation("ShopItemBoosts", fields: [boostId], references: [id], onDelete: Cascade)
+  shopItem ShopItem @relation(fields: [shopItemId], references: [id], onDelete: Cascade)
+
+  @@unique([boostId, shopItemId]) // Ensure each boost is unique in a shop item
+}
+
+model ShopItemPurchase {
+  id           Int     @id @default(autoincrement())
+  user_id      String  @db.VarChar(128)
+  shop_item_id Int
+  price        Int     @default(0)
+  confirmed    Boolean @default(false)
+  update_id    String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+  user       User     @relation("ShopItemPurchases", fields: [user_id], references: [telegram_id])
+  shopItem   ShopItem @relation("PurchaseShopItem", fields: [shop_item_id], references: [id], onDelete: Cascade)
+}
+
+model Game {
+  id         String   @id @default(uuid())
+  user_id    String
+  score      Int
+  status     String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+
+  user User @relation("UserGames", fields: [user_id], references: [telegram_id])
+}

@@ -1,0 +1,153 @@
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-Blk.eot');
+  src: local('Tactic Sans Black'), local('TacticSans-Blk'),
+    url('TacticSans-Blk.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-Blk.woff2') format('woff2'), url('TacticSans-Blk.woff') format('woff'),
+    url('TacticSans-Blk.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-Med.eot');
+  src: local('Tactic Sans Medium'), local('TacticSans-Med'),
+    url('TacticSans-Med.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-Med.woff2') format('woff2'), url('TacticSans-Med.woff') format('woff'),
+    url('TacticSans-Med.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tactic Sans Ultra';
+  src: url('TacticSans-Ult.eot');
+  src: local('Tactic Sans Ultra'), local('TacticSans-Ult'),
+    url('TacticSans-Ult.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-Ult.woff2') format('woff2'), url('TacticSans-Ult.woff') format('woff'),
+    url('TacticSans-Ult.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tactic Sans Ultra';
+  src: url('TacticSans-UltIt.eot');
+  src: local('Tactic Sans Ultra Italic'), local('TacticSans-UltIt'),
+    url('TacticSans-UltIt.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-UltIt.woff2') format('woff2'), url('TacticSans-UltIt.woff') format('woff'),
+    url('TacticSans-UltIt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-MedIt.eot');
+  src: local('Tactic Sans Medium Italic'), local('TacticSans-MedIt'),
+    url('TacticSans-MedIt.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-MedIt.woff2') format('woff2'), url('TacticSans-MedIt.woff') format('woff'),
+    url('TacticSans-MedIt.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-BldIt.eot');
+  src: local('Tactic Sans Bold Italic'), local('TacticSans-BldIt'),
+    url('TacticSans-BldIt.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-BldIt.woff2') format('woff2'), url('TacticSans-BldIt.woff') format('woff'),
+    url('TacticSans-BldIt.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-Thn.eot');
+  src: local('Tactic Sans Thin'), local('TacticSans-Thn'),
+    url('TacticSans-Thn.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-Thn.woff2') format('woff2'), url('TacticSans-Thn.woff') format('woff'),
+    url('TacticSans-Thn.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-Lgt.eot');
+  src: local('Tactic Sans Light'), local('TacticSans-Lgt'),
+    url('TacticSans-Lgt.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-Lgt.woff2') format('woff2'), url('TacticSans-Lgt.woff') format('woff'),
+    url('TacticSans-Lgt.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-Bld.eot');
+  src: local('Tactic Sans Bold'), local('TacticSans-Bld'),
+    url('TacticSans-Bld.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-Bld.woff2') format('woff2'), url('TacticSans-Bld.woff') format('woff'),
+    url('TacticSans-Bld.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-RegIt.eot');
+  src: local('Tactic Sans Italic'), local('TacticSans-RegIt'),
+    url('TacticSans-RegIt.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-RegIt.woff2') format('woff2'), url('TacticSans-RegIt.woff') format('woff'),
+    url('TacticSans-RegIt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-ThnIt.eot');
+  src: local('Tactic Sans Thin Italic'), local('TacticSans-ThnIt'),
+    url('TacticSans-ThnIt.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-ThnIt.woff2') format('woff2'), url('TacticSans-ThnIt.woff') format('woff'),
+    url('TacticSans-ThnIt.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-BlkIt.eot');
+  src: local('Tactic Sans Black Italic'), local('TacticSans-BlkIt'),
+    url('TacticSans-BlkIt.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-BlkIt.woff2') format('woff2'), url('TacticSans-BlkIt.woff') format('woff'),
+    url('TacticSans-BlkIt.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-LgtIt.eot');
+  src: local('Tactic Sans Light Italic'), local('TacticSans-LgtIt'),
+    url('TacticSans-LgtIt.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-LgtIt.woff2') format('woff2'), url('TacticSans-LgtIt.woff') format('woff'),
+    url('TacticSans-LgtIt.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Tactic Sans';
+  src: url('TacticSans-Reg.eot');
+  src: local('Tactic Sans'), local('TacticSans-Reg'),
+    url('TacticSans-Reg.eot?#iefix') format('embedded-opentype'),
+    url('TacticSans-Reg.woff2') format('woff2'), url('TacticSans-Reg.woff') format('woff'),
+    url('TacticSans-Reg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
