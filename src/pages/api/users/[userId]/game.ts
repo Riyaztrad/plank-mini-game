@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return res.status(403).json({ error: 'Unauthorized' });
   }
 
-  const hash = req.headers['hash'];
+  const hash = req.headers['Hash'];
   if (!hash) {
     console.log('[error]: ', 'No hash');
     return res.status(403).json({ error: 'Unauthorized' });

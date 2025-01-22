@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const hash = req.headers['hash'];
+  const hash = req.headers['Hash'];
   if (!hash) {
     return res.status(403).json({ error: 'Unauthorized' });
   }
