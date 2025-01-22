@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   try {
     const { user, referralCode } = req.body;
     if (!user) {
-      return res.status(500).json({ error: 'Internal server error' });
+      return res.status(500).json({ error: 'Internal server error' + JSON.stringify(user) });
     }
 
     const okResponse = await prisma.$transaction(
