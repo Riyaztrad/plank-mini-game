@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return res.status(403).json({ error: 'Unathorized' });
   }
 
-  const hash = req.headers['Hash'];
+  const hash = req.headers['hash'];
   if (!hash) {
     return res.status(403).json({ error: 'Unauthorized' });
   }
