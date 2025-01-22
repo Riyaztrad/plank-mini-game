@@ -22,18 +22,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const hash = req.headers['hash'];
   if (!hash) {
-    return res.status(403).json({ error: hash + 'Unauthorized hashed' });
+    return res.status(403).json({ error: 'Unauthorized' });
   }
   const data = Object.fromEntries(new URLSearchParams(hash as string));
   const isValid = await isHashValid(data);
   if (!isValid) {
-    return res.status(403).json({ error: 'user hash Unauthorized' });
+    return res.status(403).json({ error: 'Unauthorized' });
   }
 
   try {
     const { user, referralCode } = req.body;
     if (!user) {
-      return res.status(500).json({ error: 'Internal server error' + JSON.stringify(user) });
+      return res.status(500).json({ error: 'Internal server error' });
     }
 
     const okResponse = await prisma.$transaction(
@@ -78,7 +78,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     );
 
     if (!okResponse) {
-      return res.status(500).json({ error: 'Internal server error' + okResponse });
+      return res.status(500).json({ error: 'Internal server error' });
     }
 
     const dbUser = await prisma.user.findUnique({
@@ -140,7 +140,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ error: 'Internal server error' + error });
+    return res.status(500).json({ error: 'Internal server error' });
   }
 }
 

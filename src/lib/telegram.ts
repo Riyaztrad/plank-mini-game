@@ -1,10 +1,10 @@
 export const sendNotification = async (chatId: string, text: string) => {
-  // if (!'7252746660:AAHLQwWDRyjMqF5tqAuvTXQL1Fb7GMqjBnY') {
-  //   throw new Error('BOT_TOKEN is not set');
-  // }
+  if (!process.env.BOT_TOKEN) {
+    throw new Error('BOT_TOKEN is not set');
+  }
   try {
     const response = await fetch(
-      `https://api.telegram.org/bot${'7252746660:AAHLQwWDRyjMqF5tqAuvTXQL1Fb7GMqjBnY'}/sendMessage`,
+      `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
       {
         method: 'POST',
         headers: {
@@ -19,7 +19,7 @@ export const sendNotification = async (chatId: string, text: string) => {
               [
                 {
                   text: '🎮 Play Now',
-                  url: 'https://t.me/plank_rocket_bot',
+                  url: process.env.NEXT_PUBLIC_BOT_URL,
                 },
               ],
             ],

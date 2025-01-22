@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("postgresql://postgres:E_1MZC+Ln^;n:9#z@34.118.47.60:5432/planck-minigame-db")
+  url      = env("DATABASE_URL")
 }
 
 model User {

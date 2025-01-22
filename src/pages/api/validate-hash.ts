@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     });
   }
 
-  if (!'7252746660:AAHLQwWDRyjMqF5tqAuvTXQL1Fb7GMqjBnY') {
+  if (!process.env.BOT_TOKEN) {
     return res.status(500).json({ error: 'Internal server error' });
   }
 

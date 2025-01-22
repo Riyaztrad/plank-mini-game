@@ -60,7 +60,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 }
 
 const getCommunityDetails = async (handle: string) => {
-  const url = `https://api.telegram.org/bot${'7252746660:AAHLQwWDRyjMqF5tqAuvTXQL1Fb7GMqjBnY'}/getChat?chat_id=${handle}`;
+  const url = `https://api.telegram.org/bot${process.env.BOT_TOKEN}/getChat?chat_id=${handle}`;
   const response = await axios.get(url);
 
   const { ok } = response.data;
