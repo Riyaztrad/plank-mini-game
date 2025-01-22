@@ -78,7 +78,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     );
 
     if (!okResponse) {
-      return res.status(500).json({ error: 'Internal server error' });
+      return res.status(500).json({ error: 'Internal server error' + okResponse });
     }
 
     const dbUser = await prisma.user.findUnique({
@@ -140,7 +140,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ error: 'Internal server error' });
+    return res.status(500).json({ error: 'Internal server error' + error });
   }
 }
 
