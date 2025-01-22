@@ -22,12 +22,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const hash = req.headers['hash'];
   if (!hash) {
-    return res.status(403).json({ error: 'Unauthorized' });
+    return res.status(403).json({ error: 'Unauthorized hash ' });
   }
   const data = Object.fromEntries(new URLSearchParams(hash as string));
   const isValid = await isHashValid(data);
   if (!isValid) {
-    return res.status(403).json({ error: 'Unauthorized' });
+    return res.status(403).json({ error: 'Unauthorized isHashValid' });
   }
 
   try {
