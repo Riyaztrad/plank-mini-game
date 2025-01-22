@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const data = Object.fromEntries(new URLSearchParams(hash as string));
   const isValid = await isHashValid(data);
   if (!isValid) {
-    return res.status(403).json({ error: 'Unauthorized' });
+    return res.status(403).json({ error: 'isHashValid Unauthorized' });
   }
 
   try {
