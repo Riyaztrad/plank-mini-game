@@ -54,9 +54,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MainLayout>
       <TonConnectUIProvider
-        manifestUrl={`${process.env.NEXT_PUBLIC_WEBSITE_URL}/tonconnect-manifest.json`}
+        manifestUrl={`${'https://plank-mini-game.onrender.com/home'}/tonconnect-manifest.json`}
         actionsConfiguration={{
-          twaReturnUrl: process.env.NEXT_PUBLIC_BOT_URL as `${string}://${string}`,
+          twaReturnUrl: 'https://t.me/plank_rocket_bot' as `${string}://${string}`,
         }}>
         <Component {...pageProps} />
         <Toaster />

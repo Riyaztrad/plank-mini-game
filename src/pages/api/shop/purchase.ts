@@ -48,7 +48,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const lastPurchase = await prisma.shopItemPurchase.findFirst({
       orderBy: { created_at: 'desc' },
     });
-    let apiUrl = `https://api.telegram.org/bot${process.env.BOT_TOKEN}/getUpdates?allowed_updates=["pre_checkout_query"]`;
+    let apiUrl = `https://api.telegram.org/bot${'7252746660:AAHLQwWDRyjMqF5tqAuvTXQL1Fb7GMqjBnY'}/getUpdates?allowed_updates=["pre_checkout_query"]`;
     if (lastPurchase?.update_id) {
       apiUrl += `&offset=${lastPurchase.update_id}`;
     }

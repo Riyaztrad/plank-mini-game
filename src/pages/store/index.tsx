@@ -80,7 +80,7 @@ const Store: NextPage = () => {
       const { purchaseId } = await createPurchase(selectedItem.id, user.id);
       setPurchaseId(purchaseId); // Set the purchaseId to start polling after
 
-      const address = process.env.NEXT_PUBLIC_TON_RECEIVER_WALLET;
+      const address = 'UQA5zSTrYfSI2KPHTA5Yqzda0_5G3vaisArFR7MnnVelUZPf';
       if (!address) return;
 
       const txData = {

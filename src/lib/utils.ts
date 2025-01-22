@@ -32,7 +32,7 @@ export const getUserFromTelegram = (): TelegramUser => {
 };
 
 export const createShareLink = (referralCode: string) => {
-  let url = `${process.env.NEXT_PUBLIC_BOT_URL}`;
+  let url = `${'https://t.me/plank_rocket_bot'}`;
   if (referralCode && referralCode !== '') {
     url += `?startapp=${referralCode}`;
   }
@@ -41,7 +41,7 @@ export const createShareLink = (referralCode: string) => {
 };
 
 export const createRawLink = (referralCode: string) => {
-  let url = `${process.env.NEXT_PUBLIC_BOT_URL}`;
+  let url = `${'https://t.me/plank_rocket_bot'}`;
   if (referralCode && referralCode !== '') {
     url += `?startapp=${referralCode}`;
   }

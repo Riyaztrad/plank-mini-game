@@ -3,7 +3,8 @@ import { webcrypto } from 'crypto';
 export async function isHashValid(data: Record<string, string>) {
   if (process.env.NODE_ENV === 'development') return true;
 
-  const botToken = process.env.BOT_TOKEN;
+  const botToken = '7252746660:AAHLQwWDRyjMqF5tqAuvTXQL1Fb7GMqjBnY';
+  console.log('botToken', botToken);
   const encoder = new TextEncoder();
 
   const checkString = Object.keys(data)
