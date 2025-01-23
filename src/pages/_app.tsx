@@ -23,14 +23,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
 
+  // useEffect(()=>{
+  //   isHashValid()
+  // },[])
+
   const startApp = async () => {
     // 1. Wait for hash validation to complete before rendering the page
-    // if (process.env.NODE_ENV !== 'production') {
-    setIsHashValid(true);
-    // } else {
-    //   const isValid = await validateHash(window.Telegram.WebApp.initData);
-    //   setIsHashValid(isValid);
-    // }
+    if (process.env.NODE_ENV !== 'production') {
+      setIsHashValid(true);
+    } else {
+      const isValid = await validateHash(window.Telegram.WebApp.initData);
+      setIsHashValid(isValid);
+    }
 
     // 2. Get the Telegram user and store it in the database
     const user = getUserFromTelegram();
