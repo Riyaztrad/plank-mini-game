@@ -32,6 +32,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (process.env.NODE_ENV !== 'production') {
       setIsHashValid(true);
     } else {
+      const data = Object.fromEntries(new URLSearchParams(window.Telegram.WebApp.initData));
+      console.log('data', data);
       const isValid = await validateHash(window.Telegram.WebApp.initData);
       setIsHashValid(isValid);
     }
