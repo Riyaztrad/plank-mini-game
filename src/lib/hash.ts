@@ -9,7 +9,7 @@ export async function isHashValid(data: Record<string, string>) {
   const encoder = new TextEncoder();
 
   // Step 1: Create checkString
-  const checkString = Object.keys(data)
+  const checkString = Object.keys({ ...data, user: JSON.parse(data.user) })
     .filter((key) => key !== 'hash') // Exclude 'hash'
     .map((key) => `${key}=${data[key]}`) // Map key=value pairs
     .sort() // Sort alphabetically
