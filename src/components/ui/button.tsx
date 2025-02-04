@@ -22,7 +22,7 @@ const buttonVariants = cva(
         green:
           'bg-gradient-to-b from-[#3FFECF] to-[#4D6670] rounded-[16px] border-2 border-[#3FFECF] text-[24px] font-gumdrop pulsing-button',
         silver:
-          'bg-gradient-to-b from-[#B5C8CC] to-[#FFFFFF] rounded-[16px] border-2 border-[#FFFFFF] text-[16px] font-gumdrop text-black',
+          'bg-gradient-to-b from-[#1C8F88] to-[#83C1BD] rounded-[16px] border-2 border-[#FFFFFF] text-[16px] font-gumdrop text-black',
       },
       size: {
         default: 'py-2 px-4',
