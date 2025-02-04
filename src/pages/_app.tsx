@@ -1,15 +1,15 @@
 import '../styles/globals.css';
 
+import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import type { AppProps } from 'next/app';
 import { useEffect, useRef, useState } from 'react';
 
-import { getOrCreateUser, validateHash } from '../services/user.service';
-import { TelegramUser } from '../types/user.interface';
 import MainLayout from '../components/common/main-layout';
-import { getUserFromTelegram } from '../lib/utils';
-import { useUserStore } from '../store/userStore';
-import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { Toaster } from '../components/ui/toaster';
+import { getUserFromTelegram } from '../lib/utils';
+import { getOrCreateUser, validateHash } from '../services/user.service';
+import { useUserStore } from '../store/userStore';
+import { TelegramUser } from '../types/user.interface';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isHashValid, setIsHashValid] = useState(false);
@@ -23,20 +23,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  // useEffect(()=>{
-  //   isHashValid()
-  // },[])
-
   const startApp = async () => {
     // 1. Wait for hash validation to complete before rendering the page
-    if (process.env.NODE_ENV !== 'production') {
-      setIsHashValid(true);
-    } else {
-      const data = Object.fromEntries(new URLSearchParams(window.Telegram.WebApp.initData));
-      console.log('data', data);
-      const isValid = await validateHash(window.Telegram.WebApp.initData);
-      setIsHashValid(isValid);
-    }
+    // if (process.env.NODE_ENV !== 'production') {
+    setIsHashValid(true);
+    // } else {
+    //   const isValid = await validateHash(window.Telegram.WebApp.initData);
+    //   setIsHashValid(isValid);
+    // }
 
     // 2. Get the Telegram user and store it in the database
     const user = getUserFromTelegram();
