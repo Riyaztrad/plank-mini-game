@@ -138,13 +138,13 @@ export default function SquadDetailsDrawer({
                     : 'bg-[#063341] text-[#9badb3]'
                 )}
                 onClick={() => setActiveTab(0)}>
-                <Image
+                {/* <Image
                   src={TopScoreImage}
                   alt="score"
                   width={120}
                   height={120}
                   className="w-4 h-auto"
-                />
+                /> */}
                 Top score
               </button>
 
