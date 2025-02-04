@@ -48,7 +48,7 @@ const GlobalTab = ({ scoreLeaderboard, pointsLeaderboard }: Props) => {
             )}
             onClick={() => setActiveTab(0)}>
             <Image
-              src={TopScoreImage}
+               src={TopScoreImage}
               alt="score"
               width={120}
               height={120}

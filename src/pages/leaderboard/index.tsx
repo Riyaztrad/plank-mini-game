@@ -59,7 +59,8 @@ const Leaderboard: NextPage = () => {
         </div>
       )}
       <div className="grid grid-cols-2 gap-[10px] mt-3">
-        <TabButton
+        
+      <TabButton
           text={'Top in global'}
           image={GlobeImage}
           selected={activeTab === 0}
