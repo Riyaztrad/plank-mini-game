@@ -1,0 +1,82 @@
+@import url(../assets/fonts/tactic-sans/stylesheet.css);
+@import url(../assets/fonts/gundrop/stylesheet.css);
+@import url(../assets/fonts/inter/stylesheet.css);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --telegram-bg-color: var(--tg-theme-bg-color, #ffffff);
+    --telegram-text-color: var(--tg-theme-text-color, #000000);
+    --telegram-hint-color: var(--tg-theme-hint-color, #707579);
+    --telegram-link-color: var(--tg-theme-link-color, #3390ec);
+    --telegram-button-color: var(--tg-theme-button-color, #3390ec);
+    --telegram-button-text-color: var(--tg-theme-button-text-color, #ffffff);
+    --telegram-secondary-bg-color: var(--tg-theme-secondary-bg-color, #f4f4f5);
+  }
+
+  html {
+    @apply font-inter;
+  }
+}
+
+@layer base {
+  .bg-gradient-card {
+    @apply bg-gradient-to-b from-[#23274E]/30 to-[#126276]/90;
+  }
+
+  .shadow-primary-custom {
+    box-shadow: 0 0 8px 0 #00edff;
+  }
+
+  .shadow-white-custom {
+    box-shadow: 0 0 8px 0 white;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse animation in CSS */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes pulse-button {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.pulsing {
+  animation: pulse 1.5s infinite;
+}
+
+.pulsing-button {
+  animation: pulse-button 1.5s infinite;
+}

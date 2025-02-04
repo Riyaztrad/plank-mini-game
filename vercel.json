@@ -1,0 +1,33 @@
+{
+  "crons": [
+    {
+      "path": "/api/notifications/create/daily-checkin",
+      "schedule": "0 * * * *"
+    },
+    {
+      "path": "/api/notifications/create/lives-reset",
+      "schedule": "0 * * * *"
+    },
+    {
+      "path": "/api/notifications/create/inactivity-warning",
+      "schedule": "0 0 * * *"
+    },
+
+    {
+      "path": "/api/notifications/send/daily-checkin",
+      "schedule": "*/5 * * * *"
+    },
+    {
+      "path": "/api/notifications/send/lives-reset",
+      "schedule": "*/5 * * * *"
+    },
+    {
+      "path": "/api/notifications/send/inactivity-warning",
+      "schedule": "*/5 * * * *"
+    },
+    {
+      "path": "/api/notifications/send/referral",
+      "schedule": "*/5 * * * *"
+    }
+  ]
+}
