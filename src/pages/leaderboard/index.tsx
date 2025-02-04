@@ -1,20 +1,20 @@
 import type { NextPage } from 'next';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
-// import Link from 'next/link';
-import { getPointsLeaderboard, getScoreLeaderboard } from '../../services/user.service';
-import { LeaderboardUser } from '../../types/user.interface';
-import { useUserStore } from '../../store/userStore';
-import { createSquad, getSquads } from '../../services/squad.service';
 
-import { Squad } from '../../types/squad.interface';
-import GlobalTab from '../../components/common/global-tab';
-import CommunityTab from '../../components/common/community-tab';
-import Navbar from '../../components/common/navbar';
-import TabButton from '../../components/common/tab-button';
+// import Link from 'next/link';
 import AstronautImage from '../../assets/images/astronaut.png';
 import GlobeImage from '../../assets/images/globe.png';
+import CommunityTab from '../../components/common/community-tab';
 import CreateSquadDrawer from '../../components/common/create-squad-drawer';
-import Image from 'next/image';
+import GlobalTab from '../../components/common/global-tab';
+import Navbar from '../../components/common/navbar';
+import TabButton from '../../components/common/tab-button';
+import { createSquad, getSquads } from '../../services/squad.service';
+import { getPointsLeaderboard, getScoreLeaderboard } from '../../services/user.service';
+import { useUserStore } from '../../store/userStore';
+import { Squad } from '../../types/squad.interface';
+import { LeaderboardUser } from '../../types/user.interface';
 
 const Leaderboard: NextPage = () => {
   const { user } = useUserStore();
@@ -51,22 +51,22 @@ const Leaderboard: NextPage = () => {
   };
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-screen bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat flex flex-col p-5 overflow-y-auto">
+    <div className="fixed left-0 top-0 flex h-screen w-screen flex-col overflow-y-auto bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat p-5">
       {user?.league && (
-        <div className="flex items-center justify-center gap-4 mb-3">
+        <div className="mb-3 flex items-center justify-center gap-4">
           <Image src={user.league.image} alt={user.league.title} width={40} height={40} />
-          <p className="font-gumdrop uppercase text-[24px]">{user.league.title} League</p>
+          <p className="font-gumdrop text-[24px] uppercase">{user.league.title} League</p>
         </div>
       )}
-      <div className="grid grid-cols-2 gap-[10px] mt-3">
+      <div className="mt-3 grid grid-cols-2 gap-[10px]">
         <TabButton
-          text={'Top in global'}
+          text="Top in global"
           image={GlobeImage}
           selected={activeTab === 0}
           onClick={() => setActiveTab(0)}
         />
         <TabButton
-          text={'Top in community'}
+          text="Top in community"
           image={AstronautImage}
           selected={activeTab === 1}
           onClick={() => setActiveTab(1)}
