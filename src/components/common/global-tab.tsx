@@ -41,31 +41,30 @@ const GlobalTab = ({ scoreLeaderboard, pointsLeaderboard }: Props) => {
         <div className="flex flex-col gap-1 w-40">
           <button
             className={clsx(
-              'text-[12px] font-gumdrop px-2 py-1 border-2 border-[#0D4C60] rounded-full flex items-center gap-2 justify-center',
+              'text-[18.16px]w-[107px] h-[34.8px]  font-genos p-7.4  border-[0.74px] border-[#FFFFFF] rounded-[6.66px] flex items-center gap-[5.18px] justify-center',
               activeTab === 0
                 ? 'bg-gradient-to-b from-[#3FFECF] to-[#4D6E75] text-white'
-                : 'bg-[#063341] text-[#9badb3]'
+                : 'bg-[#063341] text-[#FFFFFF]'
             )}
             onClick={() => setActiveTab(0)}>
-            <Image
+            {/* <Image
               src={TopScoreImage}
               alt="score"
               width={120}
               height={120}
               className="w-4 h-auto"
-            />
+            /> */}
             Top score
           </button>
 
           <button
             className={clsx(
-              'text-[12px] font-gumdrop px-2 py-1 border-2 border-[#0D4C60] rounded-full flex items-center gap-2 justify-center',
+              'text-[18.16px]w-[107px] h-[34.8px]  font-genos p-7.4  border-[0.74px] border-[#FFFFFF] rounded-[6.66px] flex items-center gap-[5.18px] justify-center',
               activeTab === 1
                 ? 'bg-gradient-to-b from-[#3FFECF] to-[#4D6E75] text-white'
                 : 'bg-[#063341] text-[#9badb3]'
             )}
             onClick={() => setActiveTab(1)}>
-            <Image src={CoinImage} alt="coin" width={120} height={120} className="w-4 h-auto" />
             Coins
           </button>
         </div>

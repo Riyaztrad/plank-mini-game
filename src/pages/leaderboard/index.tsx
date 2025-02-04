@@ -51,7 +51,7 @@ const Leaderboard: NextPage = () => {
   };
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-screen bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat flex flex-col p-5 overflow-y-auto">
+    <div className="fixed left-0 top-0 h-screen w-screen bg-[url('/bg-mini.png')] bg-cover bg-center bg-no-repeat flex flex-col p-5 overflow-y-auto">
       {user?.league && (
         <div className="flex items-center justify-center gap-4 mb-3">
           <Image src={user.league.image} alt={user.league.title} width={40} height={40} />
@@ -60,7 +60,7 @@ const Leaderboard: NextPage = () => {
       )}
       <div className="grid grid-cols-2 gap-[10px] mt-3">
         <TabButton
-          text={'Top in global'}
+          text={'Top in Global'}
           image={GlobeImage}
           selected={activeTab === 0}
           onClick={() => setActiveTab(0)}
