@@ -15,9 +15,11 @@ const CommunityTab = ({ communities, onCreateSquad }: Props) => {
 
   return (
     <div className="grow flex flex-col mt-3 gap-3">
-      <Button variant={'silver'} onClick={onCreateSquad}>
+      <Button variant={'silver'} onClick={onCreateSquad}style={{height:"50px",fontFamily:"Genos",fontWeight:"700px",
+           fontSize:"24px",borderRadius:"9px"}}>
         Create a squad
       </Button>
+      
 
       <div className="grow overflow-auto flex flex-col gap-4">
         {communities.map((community, index) => (
