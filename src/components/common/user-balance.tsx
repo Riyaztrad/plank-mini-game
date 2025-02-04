@@ -16,7 +16,11 @@ export default function UserBalance({ title, amount }: { title: string; amount: 
         className="absolute left-1 w-[50px] h-auto"
       /> */}
       <div className="ml-3 uppercase">
-        <p className="text-[#1C8F88] text-[20px] mt-1" style={{fontFamily:'Genos',fontWeight:700,textTransform:'none'}}>{title}</p>
+        <p
+          className="text-[#1C8F88] text-[20px] mt-1"
+          style={{ fontFamily: 'Genos', fontWeight: 700, textTransform: 'none' }}>
+          {title}
+        </p>
         <p className="text-[20px] -mt-1">{amount}</p>
       </div>
     </Link>

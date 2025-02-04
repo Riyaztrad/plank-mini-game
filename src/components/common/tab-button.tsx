@@ -16,11 +16,13 @@ const TabButton = ({
     <div
       onClick={onClick}
       className={clsx(
-        'flex items-center bg-gradient-to-b rounded-[16px] border-2 border-[#07B1C3]',
-        selected ? 'from-[#3FFECF] to-[#4D6E75]' : 'from-[#23274E4D] to-[#126276E5]'
+        'flex items-center bg-gradient-to-b rounded-[9px] p-[10px] w-[191px] h-[47px] gap-[7px] border-[1px] border-[#FFFFFF]',
+        selected ? 'from-[#1C8F88] to-[#00FFEF]' : 'from-[#23274E4D] to-[#126276E5]'
       )}>
       <Image src={image} alt={'gift'} width={100} height={100} className="w-10 h-auto" />
-      <p className="text-[14px] font-gumdrop w-full text-center">{text}</p>
+      <p className="text-[18px] font-genos leading-[20.53px] font-bold w-[136px] tracking-[-2%] text-center">
+        {text}
+      </p>
     </div>
   );
 };

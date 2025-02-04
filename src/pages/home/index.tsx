@@ -80,7 +80,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="fixed left-0 top-0 h-screen w-screen bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat flex flex-col px-5 py-3 overflow-y-auto">
-      <div className="rounded-xl bg-[#1C8F88]" style={{paddingLeft:"5px",paddingRight:"5px"}}>
+      <div className="rounded-xl bg-[#1C8F88]" style={{ paddingLeft: '5px', paddingRight: '5px' }}>
         <div className="relative rounded-xl bg-[url('/spaceship.png')] bg-cover bg-center bg-no-repeat h-[410px]">
           <Image
             src={RocketImage}
@@ -102,7 +102,18 @@ const Home: NextPage = () => {
           )} */}
         </div>
         <div>
-          <p className="text-center text-[15px] font-gumdrop" style={{paddingBottom:"50px",fontFamily:'Genos',fontWeight:700,fontSize:'30px',lineHeight:'36.51px',marginTop:'10px'}}>Inventory</p>
+          <p
+            className="text-center text-[15px] font-gumdrop"
+            style={{
+              paddingBottom: '50px',
+              fontFamily: 'Genos',
+              fontWeight: 700,
+              fontSize: '30px',
+              lineHeight: '36.51px',
+              marginTop: '10px',
+            }}>
+            Inventory
+          </p>
           {/* <Link className="flex justify-center gap-2 items-center mt-1 mb-2 px-2" href={'/store'}>
             {user?.boosts &&
               user?.boosts.map((boost, index) => <UserBoost key={index} boost={boost} />)}
@@ -110,7 +121,11 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <Button className="w-full uppercase mt-2" variant={'blue'} onClick={createGameInDb} style={{marginTop:'15px'}}>
+      <Button
+        className="w-full uppercase mt-2"
+        variant={'blue'}
+        onClick={createGameInDb}
+        style={{ marginTop: '15px' }}>
         Launch
       </Button>
 
