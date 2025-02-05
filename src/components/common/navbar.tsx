@@ -8,10 +8,10 @@ const Navbar = () => {
   const { pathname } = useRouter();
 
   return (
-    <div className="mt-4 z-10 border-t border-white/10 pt-4">
+    <div className="mt-4 z-10 border-t border-white/10 pt-4" >
       <div className="grid grid-cols-5">
         {Links.map((link, index) => (
-          <Link href={link.href} key={index}>
+          <Link href={link.href} key={index} >
             <div className="flex flex-col items-center justify-center">
               {React.createElement(link.icon, {
                 className:

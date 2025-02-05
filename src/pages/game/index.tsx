@@ -43,7 +43,7 @@ export default function Game() {
             codeUrl: 'Build/EstateX_Build.wasm',
             streamingAssetsUrl: 'StreamingAssets',
             companyName: 'DefaultCompany',
-            productName: 'EstateX',
+            productName: 'Planck',
             productVersion: '1.0',
           })
           .then((instance: any) => {

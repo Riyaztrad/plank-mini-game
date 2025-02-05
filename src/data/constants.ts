@@ -41,7 +41,7 @@ export const Links = [
     icon: IconTasks,
   },
   {
-    label: 'Frens',
+    label: 'Friends',
     href: '/frens',
     icon: IconFrens,
   },
