@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { LeaderboardUser } from '../../types/user.interface';
-import { useUserStore } from '../../store/userStore';
-import UserItem from './user-item';
+import clsx from 'clsx';
 import Image from 'next/image';
+import React, { useState } from 'react';
+
+import UserItem from './user-item';
 import CoinImage from '../../assets/images/coin.png';
 import TopScoreImage from '../../assets/images/top-score.png';
-import clsx from 'clsx';
+import { useUserStore } from '../../store/userStore';
+import { LeaderboardUser } from '../../types/user.interface';
 
 type Props = {
   scoreLeaderboard: LeaderboardUser[];
@@ -15,7 +16,7 @@ type Props = {
 const GlobalTab = ({ scoreLeaderboard, pointsLeaderboard }: Props) => {
   const { user } = useUserStore();
   const [activeTab, setActiveTab] = useState(0);
-
+// ye solve krona 
   return (
     <div className="">
       <div className="flex gap-2 my-3">
@@ -41,7 +42,7 @@ const GlobalTab = ({ scoreLeaderboard, pointsLeaderboard }: Props) => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-1 w-40">
+        <div className="flex w-40 flex-col gap-1">
           <button
             className={clsx(
               'text-[18.16px] w-[107px] h-[34.8px]  font-genos p-7.4  border-[0.74px] border-[#FFFFFF] rounded-[6.66px] flex items-center gap-[5.18px] justify-center',
@@ -78,7 +79,7 @@ const GlobalTab = ({ scoreLeaderboard, pointsLeaderboard }: Props) => {
         </div>
       ) : (
         <div
-          className="grow overflow-auto flex flex-col gap-3"
+          className="flex grow flex-col gap-3 overflow-auto"
           style={{ maxHeight: 'calc(100vh - 320px)' }}>
           {pointsLeaderboard.map((user, i) => (
             <UserItem user={user} key={i} index={i + 1} />

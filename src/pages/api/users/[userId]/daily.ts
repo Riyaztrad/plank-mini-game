@@ -61,7 +61,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const addedTimeCoins = newConsecutiveDays % 5 === 0 ? FIVE_DAY_TIME_REWARD : 0;
 
     console.log('Adding daily reward points and days: ', addedPoints);
-    await prisma.$transaction(async (prisma) => {
+    await prisma.$transaction(async (prisma: any) => {
       await prisma.user.update({
         where: { telegram_id: userId.toString() },
         data: {
